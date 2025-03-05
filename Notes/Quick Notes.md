@@ -30,3 +30,14 @@ for j in range(i+1,len(axes)):
 plt.tight_layout(rect=[0,0,1,0.95])
 plt.show()    
 ```
+### Shapiro Normality Results
+#### Applicable only for Numeric columns
+```
+print("Shapiro Normality Results")
+for col in numerical_cols:
+    stat,p=scipy.stats.shapiro(data[numerical_cols].dropna())
+    if p > 0.05:
+        print(f"{col} has passed normality test")
+    else:
+        print(f"{col} has not passed normality test")
+```        
